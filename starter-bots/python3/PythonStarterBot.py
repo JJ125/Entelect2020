@@ -118,7 +118,7 @@ class StarterBot:
         Currently implemented logic :
         If there is a mud block in front of you, turn. Otherwise, accelerate.
         """
-        next_blocks = self.get_next_blocks(self.player_info.position.y, self.player_info.position.x, self.max_speed)
+        # next_blocks = self.get_next_blocks(self.player_info.position.y, self.player_info.position.x, self.max_speed)
         
         # if BlockObject.MUD in next_blocks:
         #     self.command = Commands.TURN.value + self.change_lane_command(random.choice(self.random_list))
@@ -126,7 +126,7 @@ class StarterBot:
         #     self.command = Commands.ACCELERATE.value
 
         self.command = Commands.ACCELERATE.value
-        
+
         return self.command
 
     def write_action(self):
@@ -134,7 +134,7 @@ class StarterBot:
         command in form : C;<round number>;<command>
         """
         print(f'C;{self.current_round};{self.command}')
-        logger.info(f'Writing command : C;{self.current_round};{self.command};')
+        # logger.info(f'Writing command : C;{self.current_round};{self.command};')
 
         return None
 
@@ -158,12 +158,12 @@ class StarterBot:
     def run_bot(self):
         logger.info("Bot has started Running")
         while True:
-            logger.info('Waiting for next round.')
+            # logger.info('Waiting for next round.')
             next_round_number = self.wait_for_round_start()
-            logger.info('Starting Round : ' + str(next_round_number))
+            # logger.info('Starting Round : ' + str(next_round_number))
             self.current_round = next_round_number
             self.get_current_round_details()
-            logger.info('Beginning StarterBot Logic Sequence')
+            # logger.info('Beginning StarterBot Logic Sequence')
             self.starter_bot_logic()
             self.write_action()
 
